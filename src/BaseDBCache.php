@@ -37,7 +37,7 @@ abstract class BaseDBCache
 
 	public function delete($item): void
 	{
-		unset($this->currentData[$item[$this->primaryColumn]]);
+		unset($this->currentData[$item]);
 	}
 
 	public function saveDataToDB()
