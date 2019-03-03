@@ -1,5 +1,5 @@
 {
-  "name": "denis-buyakov/email-cashe",
+  "name": "denis-buyakov/email-cache",
   "description": "A short description of what your package does",
   "autoload" : {
 	"classmap": ["src/"]
