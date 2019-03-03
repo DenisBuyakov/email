@@ -16,7 +16,7 @@ class Email extends BaseDBCache
 
 	protected function getDataFromDB(): array
 	{
-		return array_column(DB::select('select * from emails'), null, $this->primaryColumn);
+		return array_column(DB::select('select * from emails')->toArray(), null, $this->primaryColumn);
 	}
 
 	protected function validate($item): bool
