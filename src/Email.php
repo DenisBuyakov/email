@@ -1,7 +1,7 @@
 <?php
 
 namespace DenisBuyakov\DBCache;
-
+use \Illuminate\Support\Facades\DB;
 class Email extends BaseDBCache
 {
 
