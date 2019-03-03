@@ -1,6 +1,6 @@
 <?php
 
-namespace DBCache\email;
+namespace DenisBuyakov\DBCache;
 
 abstract class BaseDBCache
 {
