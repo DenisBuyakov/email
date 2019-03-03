@@ -4,7 +4,7 @@ namespace DenisBuyakov\DBCache;
 
 abstract class BaseDBCache
 {
-	private $currentData;
+	protected $currentData;
 	private $oldData;
 	protected $primaryColumn;
 
@@ -29,7 +29,7 @@ abstract class BaseDBCache
 
 	function check($item): bool
 	{
-		if (isset($this->curentData[$item[$this->primaryColumn]]))
+		if (isset($this->curentData[$item]))
 			return true;
 		else
 			return false;
