@@ -8,7 +8,7 @@ class email extends BaseDBCache
 
 	protected function getDataFromDB(): array
 	{
-		return DB::select('select * from emails');
+		return array_column(DB::select('select * from emails'),null,$this->primaryColumn);
 	}
 
 

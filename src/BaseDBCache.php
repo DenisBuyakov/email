@@ -6,13 +6,13 @@ abstract class BaseDBCache
 {
 	private $currentData;
 	private $oldData;
-	private $primaryColumn;
+	protected $primaryColumn;
 
 
 	public function __construct()
 	{
-		$this->currentData = $this->oldData = $this->getDataFromDB();
 		$this->primaryColumn = $this->initPrimaryColumn();
+		$this->currentData = $this->oldData = $this->getDataFromDB();
 	}
 
 	protected abstract function getDataFromDB(): array;
