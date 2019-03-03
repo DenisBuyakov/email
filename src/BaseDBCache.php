@@ -42,9 +42,10 @@ abstract class BaseDBCache
 
 	public function saveDataToDB()
 	{
-		$deletedItems = $this->getDeletedItems();
-		$newItems = $this->getNewItems();
-		$updatedItems = $this->getUpdatedItems();
+		$this->deleteItemsFromDb($this->getDeletedItems());
+		$this->updateItemsFromDb($this->getUpdatedItems());
+		$this->insertItemsInDb( $this->getNewItems());
+
 	}
 
 	private function getDeletedItems(): array

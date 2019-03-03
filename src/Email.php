@@ -1,16 +1,23 @@
 <?php
 
 namespace DenisBuyakov\DBCache;
+
 use \Illuminate\Support\Facades\DB;
+
 class Email extends BaseDBCache
 {
 
 
-	protected function getDataFromDB(): array
+	public function add($item): void
 	{
-		return array_column(DB::select('select * from emails'),null,$this->primaryColumn);
+		$array = [$this->primaryColumn => $item];
+		parent::add($array);
 	}
 
+	protected function getDataFromDB(): array
+	{
+		return array_column(DB::select('select * from emails'), null, $this->primaryColumn);
+	}
 
 	protected function validate($item): bool
 	{
