@@ -29,7 +29,7 @@ abstract class BaseDBCache
 
 	public function check($item): bool
 	{
-		if (isset($this->curentData[$item]))
+		if (isset($this->currentData[$item]))
 			return true;
 		else
 			return false;
