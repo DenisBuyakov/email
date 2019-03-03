@@ -21,7 +21,7 @@ class Email extends BaseDBCache
 
 	protected function validate($item): bool
 	{
-		if (filter_var($item, FILTER_VALIDATE_EMAIL))
+		if (filter_var($item['address'], FILTER_VALIDATE_EMAIL))
 			return true;
 		else
 			return false;

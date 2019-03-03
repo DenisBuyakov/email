@@ -21,13 +21,13 @@ abstract class BaseDBCache
 
 	public function add($item): void
 	{
-		if ($this->validate($item) and !$this->check($item[]))
+		if ($this->validate($item))
 			$this->currentData[$item[$this->primaryColumn]] = $item;
 	}
 
 	protected abstract function validate($item): bool;
 
-	function check($item): bool
+	public function check($item): bool
 	{
 		if (isset($this->curentData[$item]))
 			return true;
