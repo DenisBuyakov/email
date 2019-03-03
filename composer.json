@@ -1,0 +1,10 @@
+{
+  "name": "denis-buyakov/email-array",
+  "description": "A short description of what your package does",
+  "autoload" : {
+	"classmap": ["src/"]
+  },
+  "require": {
+	"php": "^7.1"
+  }
+}
