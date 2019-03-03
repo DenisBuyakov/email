@@ -2,7 +2,7 @@
 
 namespace DenisBuyakov\DBCache;
 
-class email extends BaseDBCache
+class Email extends BaseDBCache
 {
 
 
