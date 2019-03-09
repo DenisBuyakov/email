@@ -16,7 +16,9 @@ class Email extends BaseDBCache
 
 	protected function getDataFromDB(): array
 	{
-		return array_column(DB::select('select * from emails')->get(), null, $this->primaryColumn);
+		$request = DB::table('emails')->get();
+		$array= $request->toArray();
+		return array_column($array, null, $this->primaryColumn);
 	}
 
 	protected function validate($item): bool
@@ -35,7 +37,7 @@ class Email extends BaseDBCache
 	protected function deleteItemsFromDb($data): void
 	{
 		$ids_to_delete = array_column($data, 'id');
-		DB::table('email')->whereIn('id', $ids_to_delete)->delete();
+		DB::table('emails')->whereIn('id', $ids_to_delete)->delete();
 	}
 
 	protected function updateItemsFromDb($data): void
@@ -47,6 +49,6 @@ class Email extends BaseDBCache
 
 	protected function insertItemsInDb($data): void
 	{
-		DB::table('email')->insert($data);
+		DB::table('emails')->insert($data);
 	}
 }
