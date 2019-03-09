@@ -1,5 +1,11 @@
 QUICK START
 -----------
 
-Yii comes with a command line tool called "yiic" that can create
-a skeleton Yii application for you to start with.
+	require_once '../vendor/autoload.php';
+	$a= new \DenisBuyakov\DBCache\Email();
+	$check=$a->check('denis.da.by@gmail.com');
+	$a->delete('denis.da.by@gmail.com');
+	$check=$a->check('denis.da.by@gmail.com');
+	$a->add('5184189@gmail.com');
+	$check=$a->check('5184189@gmail.com');
+	$a->saveDataToDB();
