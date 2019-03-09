@@ -7,7 +7,6 @@ use \Illuminate\Support\Facades\DB;
 class Email extends BaseDBCache
 {
 
-
 	public function add($item): void
 	{
 		$array = [$this->primaryColumn => $item];
