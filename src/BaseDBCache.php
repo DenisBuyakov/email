@@ -5,7 +5,7 @@ namespace DenisBuyakov\DBCache;
 abstract class BaseDBCache
 {
 	protected $currentData;
-	private $oldData;
+	protected $oldData;
 	protected $primaryColumn;
 
 
@@ -19,15 +19,15 @@ abstract class BaseDBCache
 
 	protected abstract function initPrimaryColumn(): string;
 
-	public function add($item): void
+	public function add(array $item): void
 	{
 		if ($this->validate($item))
 			$this->currentData[$item[$this->primaryColumn]] = $item;
 	}
 
-	protected abstract function validate($item): bool;
+	protected abstract function validate(array $item): bool;
 
-	public function check($item): bool
+	public function check(string $item): bool
 	{
 		if (isset($this->currentData[$item]))
 			return true;
@@ -35,12 +35,12 @@ abstract class BaseDBCache
 			return false;
 	}
 
-	public function delete($item): void
+	public function delete(string $item): void
 	{
 		unset($this->currentData[$item]);
 	}
 
-	public function saveDataToDB()
+	public function saveDataToDB() : void
 	{
 		$this->deleteItemsFromDb($this->getDeletedItems());
 		$this->updateItemsFromDb($this->getUpdatedItems());
@@ -67,11 +67,11 @@ abstract class BaseDBCache
 		return $updatedItems;
 	}
 
-	protected abstract function deleteItemsFromDb($data): void;
+	protected abstract function deleteItemsFromDb(array $data): void;
 
-	protected abstract function updateItemsFromDb($data): void;
+	protected abstract function updateItemsFromDb(array $data): void;
 
-	protected abstract function insertItemsInDb($data): void;
+	protected abstract function insertItemsInDb(array $data): void;
 
 
 }
